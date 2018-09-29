@@ -1,0 +1,270 @@
+html {
+  font-family: helvetica, "Microsoft Yahei", arial, sans-serif;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+input,
+button,
+textarea,
+p,
+th,
+td {
+  padding: 0;
+  margin: 0;
+  font-family: Microsoft YaHei, sans-serif, Arial;
+}
+
+/*  通配符“*”可以代表所有标签  */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+  *font-size: 100%;
+}
+
+.clear:after {
+  display: block;
+  content: "clear";
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+.clear {
+  zoom: 1;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.ta_c{
+  text-align: center;
+}
+.ta_l{
+  text-align: left;
+}
+.ta_r{
+  text-align: right!important;
+}
+.f_c{
+  color: #ba9870;
+}
+.f_l{
+  float: left;
+}
+.f_r{
+  float: right
+}
+.btn{
+  border: 0;
+  padding: 0.1rem 0 0.1rem;
+}
+.btn:focus{
+  outline: 0;
+}
+input{
+  outline: 0;
+}
+.btn:active{
+  -webkit-box-shadow: inset 0 0 40px 1px rgba(0, 0, 0, .15);
+  box-shadow: inset 0 0 40px 1px rgba(0, 0, 0, .15);
+}
+/* vux样式修改 */
+/* toast */
+.weui-icon-clear{
+  font-size: 16px!important;
+}
+.weui-toast {
+  min-width: 40% !important;
+  padding: 0 2% 0;
+}
+.weui-toast.weui-toast_forbidden .weui-toast__content{
+  font-size: 0.36rem;
+}
+
+.vux-tab{
+  background: #010101!important;
+  width: 100%;
+}
+
+.wrap .vux-tab .vux-tab-item{
+  background: none!important;
+  color: rgba(255, 255, 255, .8);
+}
+.vux-table td:before, .vux-table th:before{
+  border-bottom: 0.05rem solid #242424!important;
+}
+.vux-table:after{
+  border-top: 0.05rem solid #242424!important;
+}
+/* 关闭icon */
+.vux-close:before, .vux-close:after{
+  height: 2px!important;
+}
+.tab .vux-tab-bar-inner{
+  border-radius: 20px;
+}
+/* .vux-close{
+  color: rgba(255, 255, 255, .6)!important;
+} */
+.vux-close:before, .vux-close:after{
+  width: 20px!important;
+}
+/* 弹框 */
+.weui-toast__content{
+  font-size: 0.4rem!important;
+}
+.vux-x-dialog-absolute .weui-dialog {
+  position: fixed!important;
+}
+.weui-dialog__btn_primary{
+  color: #ba9870!important;
+}
+.com_dialog .weui-dialog{
+  width: 100%;
+  max-width: 100%;
+  top: auto;
+  border-radius: 3px 3px 0 0;
+}
+.vux-table td, .vux-table th{
+  white-space: nowrap;
+  padding: 0 0.4rem 0;
+}
+/* mint-ui样式修改 */
+.mt-range-thumb{
+  background-color: #ba9870!important;
+}
+.mt-range-progress{
+  background-color: #ba9870!important;
+}
+/* vant */
+.van-pull-refresh{
+  overflow: visible!important;
+}
+.main .van-pagination__item{
+  background: #242424;
+  color: white;
+}
+.main .van-pagination__item--active{
+  color: #ba9870;
+  font-weight: 700;
+}
+.main .van-pagination__item--disabled,.main .van-pagination__item--disabled:active{
+  background: #242424;
+  opacity: 1;
+  color: rgba(255,255,255,.5);
+}
+body{
+    background: #010101;
+}
+::-webkit-input-placeholder { 
+  color: rgba(255,255,255,.6);  
+}
+::-moz-input-placeholder { 
+  color: rgba(255,255,255,.6);  
+}
+::-o-input-placeholder { 
+  color: rgba(255,255,255,.6);  
+}
+::-ms-input-placeholder { 
+  color: rgba(255,255,255,.6);  
+}
+.top{
+  position: fixed;
+  line-height: 1.1rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 0.4rem;
+  background: #010101;
+  z-index: 1;
+}
+.top>.back_img{
+  position: absolute;
+  left: 3%;
+  top: 0.14rem;
+  width: .8rem;
+}
+.form .weui-cell {
+  padding: 0!important;
+}
+.form .weui-input{
+  height: .8rem;
+  line-height: .8rem;
+  padding-left: 0.15rem;
+  box-sizing: border-box;
+}
+.form_bot .weui-icon-success,.form_bot .vux-check-icon > .weui-icon-success:before{
+  color: #ba9870;
+}
+.notice .vux-slider > .vux-swiper{
+  height: .8rem!important;
+  line-height: .8rem!important;
+}

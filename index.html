@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./static/mui.min.js"></script>
+  <title>Sand-Clock</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+<script>
+  mui.init({
+    keyEventBind: {
+      backbutton: true,
+    }
+  });
+
+  function plusReady() {
+    // 设置系统状态栏背景为黑色
+    plus.navigator.setStatusBarBackground('#010101');
+  }
+  if (window.plus) {
+    plusReady();
+  } else {
+    document.addEventListener('plusready', plusReady, false);
+  }
+  if (/Android/gi.test(navigator.userAgent)) {
+    window.addEventListener('resize', function () {
+      if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
+        window.setTimeout(function () {
+          document.activeElement.scrollIntoViewIfNeeded();
+        }, 0);
+      }
+    })
+  }
+
+</script>
+
+</html>
