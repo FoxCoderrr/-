@@ -6,9 +6,7 @@
         </div>
         <div class="main">
             <div class="title ta_c">{{$store.state.cur_notice.title}}</div>
-            <div class="con">
-                {{$store.state.cur_notice.content}}
-            </div>
+            <div class="con" v-html="$store.state.cur_notice.content"> </div>
         </div>
     </div>
 </template>

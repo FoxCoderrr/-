@@ -16,7 +16,7 @@
         <div class="dialog">
           <span class="vux-close" @click="dialog=false;"></span>
             <div class="title">{{cur_title}}</div>
-            <div class="con ta_l">{{cur_content}}</div>
+             <div class="con ta_l" v-html="cur_content"></div>
         </div>
       </x-dialog>
       <x-dialog v-model="dialog0" class="default_dialog">
