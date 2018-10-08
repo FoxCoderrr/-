@@ -143,14 +143,14 @@ export default {
         _name,_fileName;
       _name = file.value;
       _fileName = _name.substring(_name.lastIndexOf(".") + 1).toLowerCase();
-      if (_fileName !== "png" && _fileName !== "jpg") {
-        that.$vux.toast.show({
-          text: "请上传图片类型文件！",
-          type: "cancel",
-          position: "middle",
-          time: 1200
-        });
-      }else{
+      // if (_fileName !== "png" && _fileName !== "jpg") {
+      //   that.$vux.toast.show({
+      //     text: "请上传图片类型文件！",
+      //     type: "cancel",
+      //     position: "middle",
+      //     time: 1200
+      //   });
+      // }else{
         reader.readAsDataURL(file.files[0]);
         if (file.files[0].size > 10 * 1024 * 1024) {
           that.$vux.toast.show({
@@ -185,7 +185,7 @@ export default {
                   that.urll = res.data.msg;
                 } else {
                   that.$vux.toast.show({
-                    text: "上传失败，请重新上传！",
+                    text: res.data.msg,
                     type: "cancel",
                     position: "middle",
                     time: 1200
@@ -195,7 +195,7 @@ export default {
           };
         }
 
-      }
+      // }
     },
     delImg1: function(e) {
       this.data1 = "";
