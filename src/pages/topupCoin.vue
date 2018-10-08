@@ -53,13 +53,13 @@ export default {
   data() {
     return {
       ads: "",
-      ads_:"",
+      ads_: "",
       info: "",
       t_num: "",
       data1: "",
       urll: "",
       comment: "",
-      tips:"",
+      tips: ""
     };
   },
   components: {},
@@ -83,7 +83,10 @@ export default {
           that.info = res.data.data;
           that.tips = res.data.data.tips;
           that.ads = res.data.data.address;
-          that.ads_ = res.data.data.address.substr(0,10)+"..."+res.data.data.address.substr(res.data.data.address.length-10);
+          that.ads_ =
+            res.data.data.address.substr(0, 10) +
+            "..." +
+            res.data.data.address.substr(res.data.data.address.length - 10);
         } else if (res.data.code == -1) {
           that.$vux.toast.show({
             text: res.data.msg,
@@ -136,49 +139,62 @@ export default {
     pushImg1: function(e) {
       let file = e.target,
         reader = new FileReader(),
-        that = this;
-      reader.readAsDataURL(file.files[0]);
-      if (file.files[0].size > 10 * 1024 * 1024) {
+        that = this,
+        _name,_fileName;
+      _name = file.value;
+      _fileName = _name.substring(_name.lastIndexOf(".") + 1).toLowerCase();
+      if (_fileName !== "png" && _fileName !== "jpg") {
         that.$vux.toast.show({
-          text: that.$t("ups.d"),
-          type: "warn",
+          text: "请上传图片类型文件！",
+          type: "cancel",
           position: "middle",
-          time: 1500
+          time: 1200
         });
-      } else {
-        that.$vux.loading.show({
-          text: "上传中..."
-        });
-        reader.onload = function() {
-          let result = this.result;
+      }else{
+        reader.readAsDataURL(file.files[0]);
+        if (file.files[0].size > 10 * 1024 * 1024) {
+          that.$vux.toast.show({
+            text: that.$t("ups.d"),
+            type: "warn",
+            position: "middle",
+            time: 1500
+          });
+        } else {
+          that.$vux.loading.show({
+            text: "上传中..."
+          });
+          reader.onload = function() {
+            let result = this.result;
+  
+            // that.data1 = result;
+  
+            var image = new FormData();
+            image.append("file", e.target.files[0]);
+            // image.append("nozzle", "upload");
+            // image.append("token", that.$store.state.user_info.token);
+            that
+              .$http({
+                url: "/upload",
+                method: "post",
+                data: image
+              })
+              .then(function(res) {
+                that.$vux.loading.hide();
+                if (res.data.code == 200) {
+                  that.data1 = result;
+                  that.urll = res.data.msg;
+                } else {
+                  that.$vux.toast.show({
+                    text: "上传失败，请重新上传！",
+                    type: "cancel",
+                    position: "middle",
+                    time: 1200
+                  });
+                }
+              });
+          };
+        }
 
-          // that.data1 = result;
-
-          var image = new FormData();
-          image.append("file", e.target.files[0]);
-          // image.append("nozzle", "upload");
-          // image.append("token", that.$store.state.user_info.token);
-          that
-            .$http({
-              url: "/upload",
-              method: "post",
-              data: image
-            })
-            .then(function(res) {
-              that.$vux.loading.hide();
-              if (res.data.code == 200) {
-                that.data1 = result;
-                that.urll = res.data.msg;
-              } else {
-                that.$vux.toast.show({
-                  text: "上传失败，请重新上传！",
-                  type: "cancel",
-                  position: "middle",
-                  time: 1200
-                });
-              }
-            });
-        };
       }
     },
     delImg1: function(e) {
