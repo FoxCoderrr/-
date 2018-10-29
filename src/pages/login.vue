@@ -44,6 +44,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 import $ from "jquery";
 import { XInput } from "vux";
 import SIdentify from "../components/icode";
@@ -98,7 +99,7 @@ export default {
       let that = this;
       if (that.u_phone && that.u_pwd && that.usercode) {
         let reg = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
-        if (reg.test(that.u_phone.toString().replace(/ /g,""))) {
+        if (reg.test(that.u_phone.toString().replace(/ /g, ""))) {
           if (that.usercode == that.identifyCode) {
             that.$vux.loading.show({
               text: "正在登录"
@@ -114,6 +115,7 @@ export default {
                 }
               })
               .then(function(res) {
+                console.log(res)
                 that.$vux.loading.hide();
                 if (res.data.code == 1) {
                   that.$store.state.user_info = res.data.data;
@@ -131,6 +133,17 @@ export default {
                   });
                 }
               });
+
+            // that.axios
+            //   .post("/", {
+            //     nozzle: "login",
+            //     phone: that.u_phone.toString().replace(/ /g, ""),
+            //     password: that.u_pwd
+            //   })
+            //   .then(function(response) {
+            //     that.$vux.loading.hide();
+            //     console.log(response);
+            //   });
           } else {
             that.$vux.toast.show({
               text: "验证码输入错误！",
